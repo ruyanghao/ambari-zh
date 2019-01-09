@@ -1,0 +1,22 @@
+{
+ "services": [
+   {
+    "name": "MAHOUT",
+    "identities": [
+      {
+        "name": "/smokeuser"
+      }
+    ],
+    "components": [
+      {
+        "name": "MAHOUT",
+        "identities": [
+          {
+            "name": "/HDFS/NAMENODE/hdfs"
+          }
+        ]
+      }
+    ]
+   }
+ ]
+}

@@ -1,0 +1,89 @@
+{{!
+* Licensed to the Apache Software Foundation (ASF) under one
+* or more contributor license agreements.  See the NOTICE file
+* distributed with this work for additional information
+* regarding copyright ownership.  The ASF licenses this file
+* to you under the Apache License, Version 2.0 (the
+* "License"); you may not use this file except in compliance
+* with the License.  You may obtain a copy of the License at
+*
+*     http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+}}
+
+<div class="row">
+  <div class="col-md-6">
+    {{! HBase Master Server }}
+    {{view view.dashboardMasterComponentView}}
+    {{! RegionServers }}
+    {{#if view.isRegionServerCreated}}
+      <div {{bindAttr class=":row :component view.regionServerComponent.componentName"}}>
+        <div class="col-md-6 summary-label">
+          <a href="#" {{action filterHosts view.regionServerComponent}}>{{t dashboard.services.hbase.regionServers}}</a>
+        </div>
+        <div class="col-md-6 summary-value">
+          {{#if App.router.clusterController.isServiceContentFullyLoaded}}
+            <span>
+              {{#view App.ComponentLiveTextView liveComponentsBinding="view.service.regionServersStarted" totalComponentsBinding="view.service.regionServersTotal"}}
+                {{view.liveComponents}}/{{view.totalComponents}}
+              {{/view}}
+            </span>
+            {{t services.service.summary.RegionServersLIVE}}
+          {{else}}
+            {{t common.loading.eclipses}}
+          {{/if}}
+        </div>
+      </div>
+    {{/if}}
+    {{! PhoenixServers }}
+    {{#if view.isPhoenixQueryServerCreated}}
+      <div {{bindAttr class=":row :component view.phoenixServerComponent.componentName"}}>
+        <div class="col-md-6 summary-label">
+          <a href="#" {{action filterHosts view.phoenixServerComponent}}>{{t dashboard.services.hbase.phoenixServers}}</a>
+        </div>
+        <div class="col-md-6 summary-value">
+          <span>
+            {{#view App.ComponentLiveTextView liveComponentsBinding="view.service.phoenixServersStarted" totalComponentsBinding="view.service.phoenixServersTotal"}}
+              {{#if App.router.clusterController.isServiceContentFullyLoaded}}
+                {{view.liveComponents}}/{{view.totalComponents}}
+              {{/if}}
+            {{/view}}
+          </span>
+          {{t services.service.summary.PhoenixServersLIVE}}
+        </div>
+      </div>
+    {{/if}}
+    {{! Regions in Transition }}
+    <div class="row regions-in-trnasition">
+      <div class="col-md-6 summary-label">{{t dashboard.services.hbase.regions.transition}}</div>
+      <div class="col-md-6 summary-value">{{view.service.regionsInTransition}}</div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    {{! HBase Master Started Time }}
+    <div class="row started-time">
+      <div class="col-md-6 summary-label">{{t dashboard.services.hbase.masterStarted}}</div>
+      <div class="col-md-6 summary-value">{{view.masterStartedTime}}</div>
+    </div>
+    {{! HBase Master Activated Time }}
+    <div class="row activated-time">
+      <div class="col-md-6 summary-label">{{t dashboard.services.hbase.masterActivated}}</div>
+      <div class="col-md-6 summary-value">{{view.masterStartedTime}}</div>
+    </div>
+    {{! Average Load }}
+    <div class="row average-load">
+      <div class="col-md-6 summary-label">{{t dashboard.services.hbase.averageLoad}}</div>
+      <div class="col-md-6 summary-value">{{view.averageLoad}}</div>
+    </div>
+    {{! Master Server Heap }}
+    <div class="row server-heap">
+      <div class="col-md-6 summary-label">{{t dashboard.services.hbase.masterServerHeap}}</div>
+      <div class="col-md-6 summary-value">{{view.masterServerHeapSummary}}</div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,87 @@
+{
+    "roleCommand": "SERVICE_CHECK",
+    "clusterName": "c1",
+    "hostname": "c6401.ambari.apache.org",
+    "hostLevelParams": {
+        "not_managed_hdfs_path_list": "[\"/apps/hive/warehouse\",\"/apps/falcon\",\"/mr-history/done\",\"/app-logs\",\"/tmp\"]",
+        "agent_stack_retry_count": "5",
+        "agent_stack_retry_on_unavailability": "false",
+        "jdk_location": "http://c6401.ambari.apache.org:8080/resources/",
+        "ambari_db_rca_password": "mapred",
+        "ambari_db_rca_url": "jdbc:postgresql://c6401.ambari.apache.org/ambarirca",
+        "jce_name": "UnlimitedJCEPolicyJDK7.zip",
+        "stack_version": "2.3",
+        "stack_name": "HDP",
+        "ambari_db_rca_driver": "org.postgresql.Driver",
+        "jdk_name": "jdk-7u67-linux-x64.tar.gz",
+        "ambari_db_rca_username": "mapred",
+        "java_home": "/usr/jdk64/jdk1.7.0_45",
+        "db_name": "ambari",
+        "package_list": "[{\"name\":\"pxf-service\",\"skipUpgrade\":false, \"condition\": \"\"},{\"name\":\"apache-tomcat\",\"skipUpgrade\":false, \"condition\": \"\"},{\"name\":\"pxf-hive\",\"skipUpgrade\":false, \"condition\": \"\"},{\"name\":\"pxf-hdfs\",\"skipUpgrade\":false, \"condition\": \"\"},{\"name\":\"pxf-hbase\",\"skipUpgrade\":false, \"condition\": \"\"},{\"name\":\"pxf-json\",\"skipUpgrade\":false, \"condition\": \"\"}]"
+    },
+    "commandType": "EXECUTION_COMMAND",
+    "roleParams": {},
+    "serviceName": "PXF",
+    "role": "PXF",
+    "commandParams": {
+        "version": "2.2.1.0-2067",
+        "command_timeout": "300",
+        "service_package_folder": "PXF",
+        "script_type": "PYTHON",
+        "script": "scripts/service_check.py",
+        "excluded_hosts": "host1,host2"
+    },
+    "taskId": 152,
+    "public_hostname": "c6401.ambari.apache.org",
+    "configurations": {
+        "hadoop-env": {
+             "hdfs_user": "hdfs"
+        },
+        "pxf-env": {
+             "java_home": "/tmp"
+        },
+        "hdfs-site": {
+            "dfs.permissions.superusergroup": "hdfs"
+        },
+        "pxf-site": {
+            "a": "b"
+        },
+        "pxf-public-classpath": {
+            "content": " classpath"
+        },
+        "pxf-profiles": {
+            "content": " profile"
+        },
+        "cluster-env": {
+            "managed_hdfs_resource_property_names": "",
+            "security_enabled": "false",
+            "ignore_groupsusers_create": "false",
+            "smokeuser": "ambari-qa",
+            "kerberos_domain": "EXAMPLE.COM",
+            "user_group": "hadoop"
+        }
+    },
+    "configuration_attributes": {
+        "pxf-site": {
+            "final": {
+                "a": "true"
+            }
+        }
+    },
+    "configurationTags": {
+        "hdfs-site": {
+            "tag": "version1"
+        }
+    },
+    "commandId": "1-1",
+    "clusterHostInfo": {
+        "ambari_server_host": [
+            "c6401.ambari.apache.org"
+        ],
+        "all_hosts": [
+            "c6401.ambari.apache.org",
+            "c6402.ambari.apache.org"
+        ]
+
+}
+}

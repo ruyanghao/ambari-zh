@@ -1,0 +1,666 @@
+/**
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+@import 'common.less';
+
+#enable_security {
+  .step3 {
+    overflow: auto;
+    max-height: 500px;
+    table td {
+      word-break: break-all;
+    }
+  }
+}
+
+
+.wizard {
+
+  .btn-extra-info{
+    padding-top: 6px;
+    padding-right: 15px;
+  }
+  .btn-area {
+    .btn.btn-info {
+      margin-right: 10px;
+    }
+  }
+  .wizard-content {
+    .panel.panel-default.panel-internal {
+      border: 1px solid #ddd;
+    }
+    padding: 25px;
+    background-color: #fff;
+  }
+
+  .mbm {
+    margin-top: 0;
+  }
+
+  #get-started {
+    .cluster-name-input {
+      padding: 4px 0px;
+    }
+  }
+
+  #installOptions {
+    #targetHosts {
+      .step-title {
+        margin-bottom: 10px;
+      }
+    }
+    .radio-button-options {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    .wizard-plain-text {
+      color: #666;
+    }
+    .ssh-user, .ssh-port {
+      padding-top: 8px;
+    }
+
+    #sshKey {
+      color: #555;
+      font-family: "Courier New","courier";
+      font-size: 0.9em;
+      min-height: 110px;
+    }
+    input[type="radio"]:focus {
+      outline: none;
+    }
+    .ssh-key-input-indentation {
+      //hide the original ugly input
+      .inputfileUgly {
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: -1;
+      }
+      #selectedFileName {
+        padding: 5px 20px;
+        color: #666;
+      }
+    }
+
+  }
+  #confirm-hosts {
+
+    .compact-panel-heading {
+      padding: 10px;
+    }
+    .page-bar {
+      border: none;
+    }
+
+    table {
+      margin-bottom: 0;
+      th {
+        input[type="checkbox"] {
+          //fixes height discrepencies in IE
+          margin-bottom: -1px;
+          margin-top: -1px;
+        }
+      }
+      .tinyspan {
+        width: 2%;
+        float: none;
+      }
+    }
+
+    #host-filter {
+
+      ul {
+        margin: 3px;
+        font-size: 12px;
+        li.filter-status.active a {
+          text-decoration: none;
+          color: #fff;
+        }
+        li.filter-status.active,
+        li.filter-status.active:hover {
+          background-color: #666;
+          box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+          border-radius: 5px;
+        }
+        li.filter-status:hover {
+          background-color: #d8d8d8;
+          border-radius: 5px;
+        }
+        li.divider {
+          color: #666;
+          padding: 4px 2px;
+        }
+        li {
+          list-style: none;
+          display: block;
+          float: left;
+          padding: 4px;
+          a {
+            text-decoration: underline;
+          }
+        }
+        li.first {
+          font-weight: bold;
+        }
+      }
+    }
+    .progress {
+      margin-bottom: 0;
+    }
+    #confirm-hosts-table {
+      td.host {
+        max-width: 290px;
+      }
+      td.host .trim_hostname {
+        max-width: 97% !important;
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        float:left;
+        white-space: nowrap;
+      }
+    }
+    #warningsSection {
+      margin: 0px 10px;
+    }
+  }
+  #step4, #step5, #step6 {
+    a.selected {
+      color: #333;
+      cursor: default;
+      text-decoration: none !important;
+    }
+    .checkbox {
+      margin-top: 0;
+      margin-bottom: 5px;
+    }
+    .glyphicon-asterisks {
+      color: #00688B;
+    }
+  }
+  #step6 {
+    .pre-scrollable {
+      max-height: 440px;
+      position: relative;
+      #component_assign_table {
+        tbody td, th {
+          white-space: nowrap;
+        }
+        .trim_hostname {
+          max-width: 180px;
+          float:left;
+          white-space: nowrap;
+          display: block;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        .checkbox {
+          margin: 0;
+        }
+      }
+    }
+    .spinner-overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: #808080;
+      opacity: 0.2;
+    }
+  }
+  #deploy {
+
+    .page-bar {
+      border: none;
+    }
+    .pre-scrollable {
+      max-height: 750px;
+    }
+    table {
+      margin-bottom: 0;
+    }
+    #host-filter {
+      margin-top: 1px;
+      ul {
+        margin: 3px;
+        font-size: 12px;
+        li.filter-status.active a {
+          text-decoration: none;
+          color: #fff;
+        }
+        li.filter-status.active,
+        li.filter-status.active:hover {
+          background-color: #666;
+          box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+          border-radius: 5px;
+        }
+        li.filter-status:hover {
+          background-color: #d8d8d8;
+          border-radius: 5px;
+        }
+        li.divider {
+          color: #666;
+          padding: 4px 2px;
+        }
+        li {
+          list-style: none;
+          display: block;
+          float: left;
+          padding: 4px;
+          a {
+            text-decoration: underline;
+          }
+        }
+        li.first {
+          font-weight: bold;
+        }
+      }
+    }
+
+    #deploy-status-by-host {
+      margin-bottom: 0;
+      th.host {
+        width: 40%;
+      }
+      th.status {
+        width: 22%;
+      }
+      th.messgage {
+        width: 35%;
+      }
+      td.host {
+        max-width: 290px;
+      }
+      td.host .trim_hostname {
+        max-width: 97% !important;
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        float:left;
+        white-space: nowrap;
+      }
+      .progress-wrapper {
+        width: 73%;
+        .progress {
+          margin-bottom: 0;
+        }
+      }
+      .progress-percentage {
+        margin-left: 5px;
+        width: 20% - 10px;
+      }
+    }
+  }
+  #step14 {
+    .item {
+      line-height: 30px;
+      i {
+        font-size: 20px;
+      }
+    }
+    .row {
+      margin-left: 0;
+    }
+  }
+  #common-progress-page {
+    .item {
+      line-height: 40px;
+      width:100%;
+      float:left;
+
+      i {
+        font-size: 20px;
+      }
+      .active-link{
+        a{
+          pointer-events: auto;
+          color: #0088cc;
+          cursor: pointer;
+        }
+      }
+      .active-text{
+        a{
+          pointer-events: none;
+          text-decoration: none;
+          color: #0088cc;
+          cursor: auto;
+        }
+      }
+      .retry {
+        cursor: pointer;
+        margin-left: 15px;
+        i {
+          font-size: 14px;
+        }
+      }
+      .pull-left{
+        float: left;
+      }
+      .progress-wrapper{
+        margin-top: 10px;
+
+        .progress{
+          margin-bottom: 0;
+        }
+      }
+
+    }
+    .row {
+      margin-left: 0;
+    }
+  }
+  #ha-step1, #ha-step4, #ha-step8, #mjn-step7 {
+    .alert.alert-warn {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+  }
+
+  #ha-step4 li, #ha-step6 li, #ha-step8 li, #mjn-step7 li {
+    margin-top: 8px;
+  }
+
+  #ha-step3-review-table, #manage-journal-node-step2-review-table, #reassign-review-table {
+    td {
+      text-align: left;
+      vertical-align: top;
+      padding: 5px;
+      ul {
+        margin: 0;
+      }
+      li {
+        list-style-type: none;
+      }
+    }
+    .to-be-disabled-red {
+      color: #ff0000;
+    }
+    .to-be-installed-green {
+      color: #008000;
+    }
+  }
+}
+
+/*assign masters*/
+
+.assign-masters {
+  .select-hosts {
+    white-space: nowrap;
+    .help-block {
+      white-space: normal;
+    }
+    select > option {
+      height: 100px;
+      color: #ccc;
+    }
+    .dropdown {
+      button {
+        width: 100%;
+        .selected-item {
+          width: 95%;
+          margin-right: 5px;
+          float: left;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+  }
+
+  label.host-name {
+    padding-top: 5px;
+  }
+
+  .remaining-hosts {
+    background-color: #FCF8E3;
+    color: #C09853;
+  }
+
+  .host-assignments .mapping-box {
+    border: solid 1px #ccc;
+    padding: 8px;
+    margin-bottom: 10px;
+    background-color: #fafafa;
+  }
+
+  .host-assignments {
+    .service-component {
+      white-space: nowrap;
+      font-size: 0.9em;
+      display: inline-block;
+      margin: 2px;
+    }
+    .new-service {
+      background-color: @green;
+    }
+  }
+
+  .host-assignments .grey {
+    background-color: #808080;
+    border: solid 1px #000;
+  }
+
+  .form-horizontal .control-label {
+    white-space: normal;
+    width: 120px;
+    padding-right: 10px;
+  }
+
+  .form-horizontal .control-group select {
+    width: 85%;
+    min-width: 100px;
+    max-width: 250px;
+  }
+
+  .hostName {
+    line-height: 30px;
+  }
+  .hostString {
+    margin-bottom: 5px;
+    word-wrap: break-word;
+  }
+
+  .label {
+    background-color: @green;
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+    line-height: 16px;
+    &:hover {
+      background-color: @green;
+    }
+  }
+
+  .alertFlag {
+    font-size: 1.3em;
+    color: #B94A48;
+    font-weight: bold;
+    vertical-align: middle;
+  }
+
+  .additional-hosts-list {
+    margin-bottom: 15px;
+    .host-cell {
+      line-height: 30px;
+    }
+  }
+}
+
+
+#add-host .back {
+  display: block;
+  width: 105px;
+  margin-bottom: 10px;
+}
+
+#add-service .back {
+  display: block;
+  width: 130px;
+  margin-bottom: 10px;
+}
+
+#step8-content {
+  ul {
+    li {
+      list-style: none;
+      span.text {
+        line-height: 1.5;
+      }
+      b.service-name {
+        line-height: 2;
+      }
+    }
+  }
+  max-height: 440px;
+}
+
+.log_popup {
+  .bar {
+    -webkit-transition: width 0.0s ease;
+    -moz-transition: width 0.0s ease;
+    -ms-transition: width 0.0s ease;
+    -o-transition: width 0.0s ease;
+    transition: width 0.0s ease;
+  }
+}
+
+#step10-content {
+  ul {
+    li {
+      list-style: none;
+      span.text-info,
+      span.text-success {
+        line-height: 1.5;
+      }
+    }
+  }
+  max-height: 440px;
+}
+
+#select-stack .stack-version-selection{
+  .select-version-label {
+    padding: 5px 25px;
+  }
+  .right-stack-info {
+    margin-left: 0;
+    .available-repos-dropdown {
+      a, a.disbled{
+        cursor: pointer;
+      }
+      a.disabled{
+        color: #999;
+        background: none;
+      }
+    }
+  }
+}
+#select-stack .stack-version-selection.disabled{
+  .select-version-label {
+    color: #999;
+  }
+}
+
+#select-stack {
+  .big-radio {
+    &.disabled>span{
+      opacity: 0.7;
+    }
+  }
+  #public-disabled-link {
+    margin-left: 10px;
+    font-weight: normal;
+    cursor: pointer;
+  }
+}
+
+#select-stack {
+  .stacks-options {
+    margin-bottom: 30px;
+  }
+  .stacks-options .details-panel {
+    .patch-icon {
+      color: #ff4500;
+    }
+    .version-contents-section {
+      border: 1px solid #ddd;
+      max-height: 200px;
+      overflow: auto;
+      margin: 8px 0;
+      .table {
+        margin-bottom: 0;
+        tr:first-child td {
+          border-top: none;
+        }
+      }
+    }
+  }
+  .repos-panel {
+    .version-contents-body {
+      padding: 0px 10px;
+      .radio-group {
+        padding-bottom: 10px;
+        color: #666;
+      }
+    }
+    table > tbody > tr > td {
+        vertical-align: middle;
+    }
+    .remove-icon {
+      color: red;
+      margin: 30px 0;
+      text-align: center;
+      display: inline-block;
+      &.disabled {
+        color: grey;
+      }
+    }
+    .repo-url input {
+      width: 90%;
+    }
+    #skip-validation, #use-redhat {
+      label {
+        color: #666;
+        font-weight: normal;
+        margin-top: -2px;
+        &.disabled {
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+}
+
+@media all and (max-width: 2560px) {
+   .wizard-content {
+    #serviceConfig {
+      .nav-tabs {
+        margin-bottom: 20px;
+      }
+      .alert {
+        padding-right: 10px!important;
+      }
+    }
+    .filter-combobox {
+      > input {
+        width: 115px!important;
+      }
+    }
+  }
+}
